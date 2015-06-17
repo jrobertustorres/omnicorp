@@ -11,7 +11,7 @@ import br.com.omnicontrol.entity.Produto;
 import br.com.omnicontrol.rest.ProdutoResource;
 
 @Stateless
-public class ProdutoResourceImpl implements ProdutoResource{
+public class ProdutoResourceImpl implements ProdutoResource {
 	
 	@PersistenceContext
 	EntityManager entityManager;
