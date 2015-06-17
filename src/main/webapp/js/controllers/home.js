@@ -1,0 +1,1 @@
+angular.module('omnicontrol').controller('homeController', function ($scope, Funcionario) {});

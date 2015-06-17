@@ -1,0 +1,30 @@
+<div style="margin-top: 2%">
+	<a ng-href="#/tipoOperacao" class="btn btn-primary">Novo Tipo de Operacao</a>
+	<a href="#/home" class="btn btn-default">Voltar</a>
+</div>
+<hr>
+<h1 class="text-left">Tipos de Operacoes</h1>
+<div class="table-responsive" style="margin-top: 2.5%">
+	<table class="table table-hover table table-striped">
+		<tr>
+			<th class="text-center">Acao</th>
+			<th>Codigo</th>
+			<th>Descricao</th>
+			<th>Tipo Movimento</th>
+			<th>Atualizacao Estoque</th>
+			<th>Data Alteracao</th>
+		</tr>
+		<tr ng-repeat='tipoOperacao in tiposOperacoes'>
+			<td class="text-center">
+				<button class="btn btn-danger" ng-click="remove(tipoOperacao)">
+					Remover</button>
+			</td>
+			<td><a ng-href="#/tipoOperacao/{{tipoOperacao.idTipoOperacao}}">{{tipoOperacao.idTipoOperacao}}</a>
+			</td>
+			<td>{{tipoOperacao.descricao}}</td>
+			<td>{{tipoOperacao.tipoMovimento}}</td>
+			<td>{{tipoOperacao.atualizacaoEstoque}}</td>
+			<td>{{tipoOperacao.dataAlteracao}}</td>
+		</tr>
+	</table>
+</div>

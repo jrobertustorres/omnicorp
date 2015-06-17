@@ -1,0 +1,24 @@
+<div style="margin-top: 2%">
+	<a ng-href="#/centroCusto" class="btn btn-primary">Novo Centro de Custo</a>
+	<a href="#/home" class="btn btn-default">Voltar</a>
+</div>
+<hr>
+<h1 class="text-left">Centros de Custo</h1>
+<div class="table-responsive" style="margin-top: 2.5%">
+	<table class="table table-hover table table-striped">
+		<tr>
+			<th class="text-center">Acao</th>
+			<th>Codigo</th>
+			<th>Descricao</th>
+		</tr>
+		<tr ng-repeat='centroCusto in centrosCusto'>
+			<td class="text-center">
+				<button class="btn btn-danger" ng-click="remove(centroCusto)" title="Remover">
+					-</button>
+			</td>
+			<td><a ng-href="#/centroCusto/{{centroCusto.idCentroCusto}}">{{centroCusto.idCentroCusto}}</a>
+			</td>
+			<td>{{centroCusto.descricao}}</td>
+		</tr>
+	</table>
+</div>

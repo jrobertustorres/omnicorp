@@ -1,0 +1,36 @@
+<div style="margin-top: 2%">
+	<a ng-href="#/empresa" class="btn btn-primary">Nova Empresa</a>
+	<a href="#/home" class="btn btn-default">Voltar</a>
+</div>
+<hr>
+<h1 class="text-left">Empresas</h1>
+<div class="table-responsive" style="margin-top: 2.5%">
+	<table class="table table-hover table table-striped">
+		<tr>
+			<th class="text-center">Acao</th>
+			<th>Codigo</th>
+			<th>Nome</th>
+			<th>CNPJ</th>
+			<th>Telefone</th>
+			<th>Endereco</th>
+			<th>Numero</th>
+			<th>Bairro</th>
+			<th>Cidade</th>
+		</tr>
+		<tr ng-repeat='empresa in empresas'>
+			<td class="text-center">
+				<button class="btn btn-danger" ng-click="remove(empresa)" title="Remover">
+					-</button>
+			</td>
+			<td><a ng-href="#/empresa/{{empresa.idEmpresa}}">{{empresa.idEmpresa}}</a>
+			</td>
+			<td>{{empresa.nome}}</td>
+			<td>{{empresa.cnpj}}</td>
+			<td>{{empresa.telefone}}</td>
+			<td>{{empresa.endereco}}</td>
+			<td>{{empresa.numero}}</td>
+			<td>{{empresa.bairro}}</td>
+			<td>{{empresa.cidade}}</td>
+		</tr>
+	</table>
+</div>

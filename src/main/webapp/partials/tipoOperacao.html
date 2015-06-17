@@ -1,0 +1,34 @@
+<h1 class="text-left">Tipo de Operacao</h1>
+<hr>
+<form ng-submit="salvar()">
+	<div class="form-group" style="width: 40%">
+		<label for="descricao">Descricao</label> <input type="text"
+			class="form-control" id="descricao" name="descricao" required
+			ng-model="tipoOperacao.descricao">
+	</div>
+	<div class="control-group">
+		<label class="control-label">Tipo Movimento</label>
+		<div class="controls">
+			<select convert-to-number id="tipoMovimento" ng-model="tipoOperacao.tipoMovimento" required>
+				<option value="Compra">Compra</option>
+				<option value="Requisicao">Requisicao</option>
+			</select>
+		</div>
+	</div>
+	<div class="control-group">
+		<label class="control-label">Atualizacao Estoque</label>
+		<div class="controls">
+			<select convert-to-number id="atualizacaoEstoque" ng-model="tipoOperacao.atualizacaoEstoque" required>
+				<option value="Entrada">Entrada</option>
+				<option value="Baixa">Baixa</option>
+				<option value="Reserva">Reserva</option>
+			</select>
+		</div>
+	</div>
+	<hr>
+	<div align="left">
+		<button type="submit" class="btn btn-primary">Salvar</button>
+		<a href="#/tiposOperacoes" class="btn btn-default">Voltar</a>
+	</div>
+	<br>
+</form>

@@ -1,0 +1,24 @@
+<div style="margin-top: 2%">
+	<a ng-href="#/cargo" class="btn btn-primary">Novo Cargo</a>
+	<a href="#/home" class="btn btn-default">Voltar</a>
+</div>
+<hr>
+<h1 class="text-left">Cargos</h1>
+<div class="table-responsive" style="margin-top: 2.5%">
+	<table class="table table-hover table table-striped">
+		<tr>
+		<th class="text-center">Acao</th>
+			<th>Codigo</th>
+			<th>Descricao</th>
+		</tr>
+		<tr ng-repeat='cargo in cargos'>
+		<td class="text-center">
+				<button class="btn btn-danger" ng-click="remove(cargo)" title="Remover">
+					-</button>
+			</td>
+			<td><a ng-href="#/cargo/{{cargo.idCargo}}">{{cargo.idCargo}}</a>
+			</td>
+			<td>{{cargo.descricao}}</td>
+		</tr>
+	</table>
+</div>
