@@ -1,0 +1,66 @@
+<h1 class="text-left">Nota</h1>
+<div align="left">
+	<button type="submit" class="btn btn-primary">Baixar</button>
+</div>
+<hr>
+<form ng-submit="salvar()">
+<div class="form-group" style="width: 16%">
+        <label for="descricao">Data Movimentacao</label><br>
+        <td>{{cabecalhoNota.dataMovimentacao | date: "dd-MM-yyyy HH:mm:ss "}}</td>
+    </div>
+	<div class="control-group" style="width: 40%">
+		<label class="control-label">Status</label>
+		<div class="controls" style="width: 40%">
+			<select class="form-control" ng-model="cabecalhoNota.status" disabled>
+				<option value="Aguardando">Aguardando</option>
+				<option value="Baixado">Baixado</option>
+				<option value="Entrege">Entregue</option>
+				<option value="Separada">Separada</option>
+			</select>
+		</div>
+	</div>
+	<div class="control-group" style="width: 40%">
+		<label class="control-label">Tipo Operacao</label>
+		<div class="controls" style="width: 40%">
+			<select class="form-control" required
+				ng-model="cabecalhoNota.tipoOperacao.idTipoOperacao"
+				ng-options="item.idTipoOperacao as item.descricao for item in optionsTipoOperacao">
+			</select>
+		</div>
+	</div>
+	<div class="control-group" style="width: 40%">
+		<label class="control-label">Tipo Negociacao</label>
+		<div class="controls" style="width: 40%">
+			<select class="form-control"
+				ng-model="cabecalhoNota.tipoNegociacao.idTipoNegociacao"
+				ng-options="item.idTipoNegociacao as item.descricao for item in optionsTipoNegociacao">
+			</select>
+		</div>
+	</div>
+	<div class="control-group" style="width: 40%">
+		<label class="control-label">Centro Custo</label>
+		<div class="controls" style="width: 40%">
+			<select class="form-control" ng-model="cabecalhoNota.centroCusto.idCentroCusto"
+				ng-options="item.idCentroCusto as item.descricao for item in optionsCentroCusto">
+			</select>
+		</div>
+	</div>
+	<div class="control-group" style="width: 40%">
+		<label class="control-label">Fornecedor</label>
+		<div class="controls" style="width: 40%">
+			<select class="form-control" ng-model="cabecalhoNota.fornecedor.idFornecedor"
+				ng-options="item.idFornecedor as item.nome for item in optionsFornecedor">
+			</select>
+		</div>
+	</div>
+	<hr>
+	<div align="left">
+		<button class="btn btn-primary">Adicionar Item</button>
+	</div>
+	<br>
+	<hr>
+	<div align="left">
+		<button type="submit" class="btn btn-primary">Salvar</button>
+		<a ng-href="#/cabecalhoNotas" class="btn btn-default">Voltar</a>
+	</div>
+</form>

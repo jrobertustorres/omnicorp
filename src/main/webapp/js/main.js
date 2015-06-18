@@ -136,20 +136,20 @@ app.config(function ($routeProvider) {
         controller: 'produtoController'
     });
     
-//    $routeProvider.when('/central', {
-//        templateUrl: 'partials/central.html',
-//        controller: 'centralController'
-//    });
-//    
-//    $routeProvider.when('/produto', {
-//        templateUrl: 'partials/produto.html',
-//        controller: 'produtoController'
-//    });
-//    
-//    $routeProvider.when('/central/:idCabecalhoNota', {
-//        templateUrl: 'partials/central.html',
-//        controller: 'centralController'
-//    });
+    $routeProvider.when('/cabecalhoNotas', {
+        templateUrl: 'partials/cabecalhoNotas.html',
+        controller: 'cabecalhoNotasController'
+    });
+    
+    $routeProvider.when('/nota', {
+        templateUrl: 'partials/nota.html',
+        controller: 'cabecalhoNotaController'
+    });
+    
+    $routeProvider.when('/nota/:idCabecalhoNota', {
+        templateUrl: 'partials/nota.html',
+        controller: 'cabecalhoNotaController'
+    });
     
     $routeProvider.when('/home', {
         templateUrl: 'partials/home.html',

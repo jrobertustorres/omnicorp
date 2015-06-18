@@ -16,7 +16,6 @@ angular.module('omnicontrol').controller('produtoController', function ($scope, 
 //    $scope.optionGrupo = [];
     Select.getOptions('/omnicontrol/api/grupoproduto/').then(function(result){
     	$scope.optionsGrupo = result.data;
-    	console.log(result.data);
     	}, function(error){
     		console.log("Ocorreu um erro.");
     	});

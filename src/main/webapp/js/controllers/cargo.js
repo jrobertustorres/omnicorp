@@ -1,6 +1,6 @@
 angular.module('omnicontrol').controller('cargoController', function ($scope, $routeParams, Cargos) {
 
-    if ($routeParams.idCargo) {
+    if ($routeParams.idCargo) { 
         Cargos.get({
         		id: $routeParams.idCargo
             }, function (cargo) {

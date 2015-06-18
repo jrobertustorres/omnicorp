@@ -12,7 +12,7 @@ public class TipoNegociacao {
 	
 	@GeneratedValue
 	@Id
-	@Column(name="IDGRUPOPRODUTO")
+	@Column(name="IDTIPONEGOCIACAO")
 	private Long idTipoNegociacao;
 	@Column(name="DESCRICAO")
 	private String descricao;

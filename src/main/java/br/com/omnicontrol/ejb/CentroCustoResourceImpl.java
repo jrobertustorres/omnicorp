@@ -35,7 +35,7 @@ public class CentroCustoResourceImpl implements CentroCustoResource{
 	public void removeCentroCusto(Long centroCustoId) {
 		final CentroCusto centroCusto = entityManager.find(CentroCusto.class, centroCustoId);
 		if (null == centroCusto) {
-			throw new NoResultException("No note with id " + centroCustoId + " found");
+			throw new NoResultException("Nenhuma Centro de Custo com id " + centroCustoId + " encontrado.");
 		}
 		entityManager.remove(centroCusto);
 	}
