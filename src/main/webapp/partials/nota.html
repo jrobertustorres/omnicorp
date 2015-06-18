@@ -40,7 +40,7 @@
 	<div class="control-group" style="width: 40%">
 		<label class="control-label">Centro Custo</label>
 		<div class="controls" style="width: 40%">
-			<select class="form-control" ng-model="cabecalhoNota.centroCusto.idCentroCusto"
+			<select class="form-control" ng-model="cabecalhoNota.centroCusto.idCentroCusto" required
 				ng-options="item.idCentroCusto as item.descricao for item in optionsCentroCusto">
 			</select>
 		</div>
@@ -55,7 +55,7 @@
 	</div>
 	<hr>
 	<div align="left">
-		<button class="btn btn-primary">Adicionar Item</button>
+		<button id="add-item" type="button" class="btn btn-primary" ng-click="addItem()">Adicionar Item</button>
 	</div>
 	<br>
 	<hr>
@@ -65,4 +65,22 @@
 		<button type="submit" class="btn btn-primary">Salvar</button>
 		<a ng-href="#/cabecalhoNotas" class="btn btn-default">Voltar</a>
 	</div><br>
+	
 </form>
+
+<div id="add-item-modal" class="modal fade" tabindex="-1" role="dialog" ng-class="{'in show':isAddItemMode()}">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">Adicionar Item</h4>
+            </div>
+            <div class="modal-body">
+                <form id="add-item-form" ng-submit="salvarItem()">
+                    <input type="text" ng-model="itemNota.quantidade" placeholder="quantidade" class="form-control" required/>
+                    <button class="btn btn-primary" type="submit">Save</button>
+                    <button class="btn btn-default" ng-click="cancel()">Cancel</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

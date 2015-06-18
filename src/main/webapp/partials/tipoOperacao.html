@@ -6,19 +6,19 @@
 			class="form-control" id="descricao" name="descricao" required
 			ng-model="tipoOperacao.descricao">
 	</div>
-	<div class="control-group">
+	<div class="control-group" style="width: 40%">
 		<label class="control-label">Tipo Movimento</label>
-		<div class="controls">
-			<select convert-to-number id="tipoMovimento" ng-model="tipoOperacao.tipoMovimento" required>
+		<div class="controls" style="width: 40%">
+			<select class="form-control" id="tipoMovimento" ng-model="tipoOperacao.tipoMovimento">
 				<option value="Compra">Compra</option>
 				<option value="Requisicao">Requisicao</option>
 			</select>
 		</div>
 	</div>
-	<div class="control-group">
+	<div class="control-group" style="width: 40%">
 		<label class="control-label">Atualizacao Estoque</label>
-		<div class="controls">
-			<select convert-to-number id="atualizacaoEstoque" ng-model="tipoOperacao.atualizacaoEstoque" required>
+		<div class="controls" style="width: 40%">
+			<select class="form-control" id="atualizacaoEstoque" ng-model="tipoOperacao.atualizacaoEstoque">
 				<option value="Entrada">Entrada</option>
 				<option value="Baixa">Baixa</option>
 				<option value="Reserva">Reserva</option>

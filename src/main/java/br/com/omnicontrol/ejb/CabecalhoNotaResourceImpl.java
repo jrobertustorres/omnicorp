@@ -1,7 +1,5 @@
 package br.com.omnicontrol.ejb;
 
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
@@ -39,8 +37,7 @@ public class CabecalhoNotaResourceImpl implements CabecalhoNotaResource{
 	public CabecalhoNota saveCabecalhoNota(CabecalhoNota cabecalhoNota) {
 		if (cabecalhoNota.getIdCabecalhoNota() == null) {
 			cabecalhoNota.setStatus("Aguardando");
-//			cabecalhoNota.setDataMovimentacao(new java.util.Date());  
-			cabecalhoNota.setDataMovimentacao(getDateTime());
+			cabecalhoNota.setDataMovimentacao(new Date());  
 			entityManager.persist(cabecalhoNota);
 		} else {
 			entityManager.merge(cabecalhoNota);
@@ -52,11 +49,4 @@ public class CabecalhoNotaResourceImpl implements CabecalhoNotaResource{
 	public CabecalhoNota getCabecalhoNota(Long cabecalhoNotaId) {
 		return entityManager.find(CabecalhoNota.class, cabecalhoNotaId);
 	}
-	
-	private String getDateTime() { 
-		DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss"); 
-		Date date = new Date(); 
-		return dateFormat.format(date); 
-	}
-
 }

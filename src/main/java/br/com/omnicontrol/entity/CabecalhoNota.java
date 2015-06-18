@@ -1,5 +1,7 @@
 package br.com.omnicontrol.entity;
 
+import java.util.Date;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -7,6 +9,8 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 @Entity(name="cabecalhonota")
 @Table(name="cabecalhonota")
@@ -19,9 +23,9 @@ public class CabecalhoNota {
 	@Column(name="STATUS", nullable = true)
 	private String status;
 
-//	@Temporal(TemporalType.DATE)
+	@Temporal(value=TemporalType.TIMESTAMP)
 	@Column(name="DATAMOVIMENTACAO")
-	private String dataMovimentacao;
+	private Date dataMovimentacao;
 
 	@JoinColumn(name="IDTIPOOPERACAO", referencedColumnName="IDTIPOOPERACAO", nullable = false)
     @ManyToOne
@@ -58,11 +62,11 @@ public class CabecalhoNota {
 		this.status = status;
 	}
 
-	public String getDataMovimentacao() {
+	public Date getDataMovimentacao() {
 		return dataMovimentacao;
 	}
 
-	public void setDataMovimentacao(String dataMovimentacao) {
+	public void setDataMovimentacao(Date dataMovimentacao) {
 		this.dataMovimentacao = dataMovimentacao;
 	}
 

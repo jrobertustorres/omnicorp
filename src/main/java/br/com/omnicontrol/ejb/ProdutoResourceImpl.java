@@ -35,7 +35,7 @@ public class ProdutoResourceImpl implements ProdutoResource {
 	public void removeProduto(Long produtoId) {
 		final Produto produto = entityManager.find(Produto.class, produtoId);
 		if (null == produto) {
-			throw new NoResultException("No note with id " + produtoId + " found");
+			throw new NoResultException("Nenhum produto com id " + produtoId + " encontrado.");
 		}
 		entityManager.remove(produto);
 	}
