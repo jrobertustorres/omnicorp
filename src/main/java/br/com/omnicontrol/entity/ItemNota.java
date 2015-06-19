@@ -17,12 +17,11 @@ public class ItemNota {
 	@Column(name="IDITEMNOTA")
 	private Long idItemNota;
 	@Column(name="QUANTIDADE", nullable = false)
-	private double quantidade;	
+	private int quantidade;	
 	@Column(name="VALORUNITARIO", nullable = false)
 	private double valorUnitario;
 	@Column(name="VALORTOTAL", nullable = true)
 	private double valorTotal;
-
 
 	@JoinColumn(name="IDPRODUTO", referencedColumnName="IDPRODUTO", nullable = false)
     @ManyToOne
@@ -43,11 +42,11 @@ public class ItemNota {
 		this.idItemNota = idItemNota;
 	}
 
-	public double getQuantidade() {
+	public int getQuantidade() {
 		return quantidade;
 	}
 
-	public void setQuantidade(double quantidade) {
+	public void setQuantidade(int quantidade) {
 		this.quantidade = quantidade;
 	}
 

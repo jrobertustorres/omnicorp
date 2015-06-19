@@ -6,8 +6,10 @@ import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.NoResultException;
 import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
 
 import br.com.omnicontrol.entity.ItemNota;
+import br.com.omnicontrol.entity.Produto;
 import br.com.omnicontrol.rest.ItemNotaResource;
 
 @Stateless
@@ -33,6 +35,9 @@ public class ItemNotaResourceImpl implements ItemNotaResource{
 
 	@Override
 	public ItemNota saveItemNota(ItemNota itemNota) {
+//		Produto estoque;
+//		ProdutoResourceImpl p = new ProdutoResourceImpl();
+//		estoque = p.verificaEstoqueMinimo(itemNota.getProduto());
 		if (itemNota.getIdItemNota() == null) {
 			entityManager.persist(itemNota);
 		} else {

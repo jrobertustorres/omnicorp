@@ -6,6 +6,7 @@ import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.NoResultException;
 import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
 
 import br.com.omnicontrol.entity.Produto;
 import br.com.omnicontrol.rest.ProdutoResource;
@@ -44,5 +45,11 @@ public class ProdutoResourceImpl implements ProdutoResource {
 	public Produto getProduto(Long produtoId) {
 		return entityManager.find(Produto.class, produtoId);
 	}
+	
+//	public Produto verificaEstoqueMinimo(Produto produto) {
+//		Query query = entityManager.createQuery ("Select p.estoqueMinimo from Produto p where p.idProduto = "+produto);
+//		Produto prod = (Produto) query.getSingleResult();
+//		return prod;
+//	}
 
 }

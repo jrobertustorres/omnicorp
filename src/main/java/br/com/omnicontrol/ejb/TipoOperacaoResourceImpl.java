@@ -1,5 +1,6 @@
 package br.com.omnicontrol.ejb;
 
+import java.util.Date;
 import java.util.List;
 
 import javax.ejb.Stateless;
@@ -19,8 +20,10 @@ public class TipoOperacaoResourceImpl implements TipoOperacaoResource{
 	@Override
 	public TipoOperacao saveTipoOperacao(TipoOperacao tipoOperacao) {
 		if (tipoOperacao.getIdTipoOperacao() == null) {
+			tipoOperacao.setDataAlteracao(new Date());
 			entityManager.persist(tipoOperacao);
 		} else {
+			tipoOperacao.setDataAlteracao(new Date());
 			entityManager.merge(tipoOperacao);
 		}
 		return tipoOperacao;

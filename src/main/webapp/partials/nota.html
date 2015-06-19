@@ -1,86 +1,144 @@
 <h1 class="text-left">Nota</h1>
 <div align="left">
-	<button type="submit" class="btn btn-primary">Baixar</button>
+	<!-- 	<button type="submit" class="btn btn-primary">Confirmar</button> -->
+	<button class="btn btn-primary" ng-click="atualizaProduto()"
+		title="Confirmar">Confirmar</button>
+		
+	<button id="add-item" type="button" class="btn btn-primary" ng-click="addItem()">Adicionar Item</button>
 </div>
 <hr>
-<form ng-submit="salvar()">
-<div class="form-group" style="width: 16%">
-        <label for="descricao">Data Movimentacao</label><br>
-        <td>{{cabecalhoNota.dataMovimentacao | date: "dd-MM-yyyy HH:mm:ss "}}</td>
-    </div>
-	<div class="control-group" style="width: 40%">
-		<label class="control-label">Status</label>
-		<div class="controls" style="width: 40%">
-			<select class="form-control" ng-model="cabecalhoNota.status" disabled>
-				<option value="Aguardando">Aguardando</option>
-				<option value="Baixado">Baixado</option>
-				<option value="Entrege">Entregue</option>
-				<option value="Separada">Separada</option>
-			</select>
+<div style="float: left">
+	<form ng-submit="salvar()">
+		<div class="form-group" style="width: auto">
+			<label for="descricao">Data Movimentacao</label><br>
+			<td>{{cabecalhoNota.dataMovimentacao | date: "dd-MM-yyyy
+				HH:mm:ss"}}</td>
 		</div>
-	</div>
-	<div class="control-group" style="width: 40%">
-		<label class="control-label">Tipo Operacao</label>
-		<div class="controls" style="width: 40%">
-			<select class="form-control" required
-				ng-model="cabecalhoNota.tipoOperacao.idTipoOperacao"
-				ng-options="item.idTipoOperacao as item.descricao for item in optionsTipoOperacao">
-			</select>
+		<div class="control-group">
+			<label class="control-label">Status</label>
+			<div class="controls" style="width: auto">
+				<select class="form-control" ng-model="cabecalhoNota.status"
+					disabled>
+					<option value="Aguardando">Aguardando</option>
+					<option value="Baixado">Baixado</option>
+					<option value="Entrege">Entregue</option>
+					<option value="Separada">Separada</option>
+				</select>
+			</div>
 		</div>
-	</div>
-	<div class="control-group" style="width: 40%">
-		<label class="control-label">Tipo Negociacao</label>
-		<div class="controls" style="width: 40%">
-			<select class="form-control"
-				ng-model="cabecalhoNota.tipoNegociacao.idTipoNegociacao"
-				ng-options="item.idTipoNegociacao as item.descricao for item in optionsTipoNegociacao">
-			</select>
+		<div class="control-group">
+			<label class="control-label">Tipo Operacao</label>
+			<div class="controls" style="width: auto">
+				<select class="form-control" required
+					ng-model="cabecalhoNota.tipoOperacao.idTipoOperacao"
+					ng-options="item.idTipoOperacao as item.descricao for item in optionsTipoOperacao">
+				</select>
+			</div>
 		</div>
-	</div>
-	<div class="control-group" style="width: 40%">
-		<label class="control-label">Centro Custo</label>
-		<div class="controls" style="width: 40%">
-			<select class="form-control" ng-model="cabecalhoNota.centroCusto.idCentroCusto" required
-				ng-options="item.idCentroCusto as item.descricao for item in optionsCentroCusto">
-			</select>
+		<div class="control-group">
+			<label class="control-label">Tipo Negociacao</label>
+			<div class="controls" style="width: auto">
+				<select class="form-control"
+					ng-model="cabecalhoNota.tipoNegociacao.idTipoNegociacao"
+					ng-options="item.idTipoNegociacao as item.descricao for item in optionsTipoNegociacao">
+				</select>
+			</div>
 		</div>
-	</div>
-	<div class="control-group" style="width: 40%">
-		<label class="control-label">Fornecedor</label>
-		<div class="controls" style="width: 40%">
-			<select class="form-control" ng-model="cabecalhoNota.fornecedor.idFornecedor"
-				ng-options="item.idFornecedor as item.nome for item in optionsFornecedor">
-			</select>
+		<div class="control-group">
+			<label class="control-label">Centro Custo</label>
+			<div class="controls" style="width: auto">
+				<select class="form-control"
+					ng-model="cabecalhoNota.centroCusto.idCentroCusto" required
+					ng-options="item.idCentroCusto as item.descricao for item in optionsCentroCusto">
+				</select>
+			</div>
 		</div>
-	</div>
-	<hr>
-	<div align="left">
-		<button id="add-item" type="button" class="btn btn-primary" ng-click="addItem()">Adicionar Item</button>
-	</div>
-	<br>
-	<hr>
-	
-	<hr>
-	<div align="left">
+		<div class="control-group">
+			<label class="control-label">Fornecedor</label>
+			<div class="controls" style="width: auto">
+				<select class="form-control"
+					ng-model="cabecalhoNota.fornecedor.idFornecedor"
+					ng-options="item.idFornecedor as item.nome for item in optionsFornecedor">
+				</select>
+			</div>
+		</div>
+		<hr>
+		<div align="left">
 		<button type="submit" class="btn btn-primary">Salvar</button>
 		<a ng-href="#/cabecalhoNotas" class="btn btn-default">Voltar</a>
-	</div><br>
-	
-</form>
+	</div>
+	<br>
+	</form>
+</div>
+<div class="table-responsive" style="margin-top: 2.5%; float: right; width: 80%">
+	<table class="table table-hover table table-striped">
+		<tr>
+			<th class="text-center">Acao</th>
+			<th>Codigo</th>
+			<th>Nome</th>
+			<th>Quantidade</th>
+			<th>Valor Unitario</th>
+			<th>Valor Total</th>
+		</tr>
+		<tr ng-repeat='itemNota in itensNota'>
+			<td class="text-center">
+				<button class="btn btn-danger" ng-click="remove(itemNota)"
+					title="Remover">-</button>
+			</td>
+			<td><a ng-href="#/itemNota/{{itemNota.produto.idProduto}}">{{itemNota.produto.idProduto}}</a>
+			</td>
+			<td>{{itemNota.produto.descricao}}</td>
+			<td>{{itemNota.quantidade}}</td>
+			<td>R{{itemNota.valorUnitario | currency }}</td>
+			<td>R{{itemNota.valorTotal | currency }}</td>
+		</tr>
+	</table>
+</div>
+<!-- 	<div align="right"> -->
+<!-- 		<label class="control-label">Total da Nota: </label>R{{itemNota.valorTotal  | currency }} -->
+<!-- 	</div> -->
 
-<div id="add-item-modal" class="modal fade" tabindex="-1" role="dialog" ng-class="{'in show':isAddItemMode()}">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h4 class="modal-title">Adicionar Item</h4>
-            </div>
-            <div class="modal-body">
-                <form id="add-item-form" ng-submit="salvarItem()">
-                    <input type="text" ng-model="itemNota.quantidade" placeholder="quantidade" class="form-control" required/>
-                    <button class="btn btn-primary" type="submit">Save</button>
-                    <button class="btn btn-default" ng-click="cancel()">Cancel</button>
-                </form>
-            </div>
-        </div>
-    </div>
+<div id="add-item-modal" class="modal fade" tabindex="-1" role="dialog"
+	ng-class="{'in show':isAddItemMode()}">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h4 class="modal-title">Adicionar Item</h4>
+			</div>
+			<div class="modal-body">
+				<form id="add-item-form" ng-submit="salvarItem()">
+					<div class="control-group" style="width: 40%">
+
+						<label class="control-label">Produto</label>
+						<div class="controls" style="width: 100%">
+							<select class="form-control" required
+								ng-model="itemNota.produto.idProduto"
+								ng-options="item.idProduto as item.descricao for item in optionsProduto">
+							</select>
+						</div>
+					</div>
+					<div class="form-group" style="width: 40%">
+						<label for="quantidade">Quantidade</label> <input type="text"
+							class="form-control" id="quantidade" name="quantidade" required
+							ng-model="itemNota.quantidade">
+					</div>
+					<div class="form-group" style="width: 40%">
+						<label for="valorUnitario">Valor Unitario</label> <input
+							type="text" class="form-control" id="valorUnitario"
+							name="valorUnitario" required ng-model="itemNota.valorUnitario"
+							ng-mouseleave="calculaTotal(quantidade,valorUnitario)">
+					</div>
+					<div class="form-group" style="width: 40%">
+						<label for="valorTotal">Valor Total</label> <input type="text"
+							class="form-control" id="valorTotal" name="valorTotal" required
+							ng-model="itemNota.valorTotal">
+						<td>{{itemNota.resultado}}</td>
+					</div>
+
+					<button class="btn btn-primary" type="submit">Salvar</button>
+					<button class="btn btn-default" ng-click="cancel()">Cancelar</button>
+				</form>
+			</div>
+		</div>
+	</div>
 </div>

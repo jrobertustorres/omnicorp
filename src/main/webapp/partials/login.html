@@ -6,25 +6,23 @@
 			<div class="panel-body">
 				<img src="images/logo.png" width="160" height="115"
 					class="center-block logo-loginform">
-				<form target="FormPanel_gwt_2" action="/j_spring_security_check"
-					method="POST">
+				<form ng-submit="login()>
 					<fieldset>
 						<legend class="loginform-title"></legend>
 						<div class="form-group">
 							<div class="input-group">
-								<input type="text" class="form-control" id="username"
-									placeholder="E-mail" name="j_username"> <span class="input-group-addon">@</span>
+								<input type="text" class="form-control" id="email"
+									placeholder="E-mail" name="email"> <span class="input-group-addon">@</span>
 							</div>
 						</div>
-						<div class="form-group loginform-senha">
+						<div class="form-group">
 							<div class="input-group">
-								<input class="form-control" type="password" id="password"
-									placeholder="Senha" name="j_password" ><span class="input-group-addon"> </span>
+								<input class="form-control" type="password" id="senha"
+									placeholder="Senha" name="senha" ><span class="input-group-addon"> </span>
 							</div>
 						</div>
 						<a ng-href="#/home" class="btn btn-block btn-primary">Fazer Login</a>
-<!-- 						<button type="submit" class="btn btn-block btn-success" -->
-<!-- 							data-loading-text="Carregando...">Fazer Login</button> -->
+<!-- 						<button type="submit" class="btn btn-block btn-success" data-loading-text="Carregando...">Fazer Login</button> -->
 					</fieldset>
 				</form>
 			</div>

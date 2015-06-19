@@ -13,6 +13,14 @@ angular.module('omnicontrol').controller('cabecalhoNotaController', function ($s
         $scope.cabecalhoNota = new CabecalhoNota();
     }
     
+    $scope.salvar = function () {
+        $scope.cabecalhoNota.$save().then(function () {
+//            $scope.cabecalhoNota = new CabecalhoNota();
+        }).catch(function (erro) {
+            console.log('Não foi possivel salvar');
+        });
+    }
+    
     Select.getOptions('/omnicontrol/api/tiponegociacao/').then(function(result){
     	$scope.optionsTipoNegociacao = result.data;//pega o resultado e disponibiliza ao angular.
     	}, function(error){
@@ -37,20 +45,6 @@ angular.module('omnicontrol').controller('cabecalhoNotaController', function ($s
     	console.log("Ocorreu um erro.");
     });
 
-    $scope.salvar = function () {
-        $scope.cabecalhoNota.$save().then(function () {
-            $scope.cabecalhoNota = new CabecalhoNota();
-        }).catch(function (erro) {
-            console.log('Não foi possivel salvar');
-        });
-    }
-        
-        /* O contato criado através de $resource possui características adicionadas dinamicamente pelo serviço
-        Contato que até agora nem sabíamos que existiam. Esta é uma das vantagens de trabalharmos com $resource. 
-        Qualquer objeto retornado através dele é incrementado com uma série de funções voltadas para persistência, 
-        em nosso caso, persistência ligada a REST Endpoints. A função $save gera por debaixo dos panos uma requisição 
-        do tipo POST que envia para http://localhost/contatos os dados do contato. */
-    
     var EDIT_MODE = "edit";
     var mode = undefined;
     
@@ -61,25 +55,63 @@ angular.module('omnicontrol').controller('cabecalhoNotaController', function ($s
    
     
     $scope.addItem = function ()
-    {   $scope.itemNota = new ItemNota();
+    {   
+    	$scope.itemNota = new ItemNota();
     	$scope.itemNota.cabecalhoNota =  $scope.cabecalhoNota;
-    	
-    	///
-//    	$scope.itemNota.produto = new Object();
-//    	$scope.itemNota.produto.idProduto = 7;
-//    	$scope.itemNota.valorUnitario = 6;
-//    	$scope.itemNota.valorTotal = 1;
-    	///
-    	
         mode = EDIT_MODE;
     };
     
     $scope.salvarItem = function () {
         $scope.itemNota.$save().then(function () {
             $scope.itemNota = new ItemNota();
+            buscaItens();
         }).catch(function (erro) {
             console.log('Não foi possivel salvar');
         });
     }
+    
+    $scope.cancel = function ()
+    {
+        mode = undefined;
+    };
+    
+    Select.getOptions('/omnicontrol/api/produto/').then(function(result){
+    	$scope.optionsProduto = result.data;
+    }, function(error){
+    	console.log("Ocorreu um erro.");
+    });
+    
+    function buscaItens() {
+    	ItemNota.query(function (itensNota) {
+            $scope.itensNota = itensNota;
+        }, function (erro) {
+            console.log('Não foi possivel obter a lista de cargos.');
+        });
+    };
+
+    buscaItens();
+    
+    $scope.remove = function (itemNota) {
+    	ItemNota.delete({
+            id: itemNota.idItemNota
+        }, buscaItens, function (erro) {
+            console.log(erro);
+        });
+    };
+    
+//    function calculaTotal(qtd,val){
+//    	var resultado;
+//    	resultado = qtd*val;
+//    	$scope.resultado;
+//    };
 
 });
+
+
+
+/* O contato criado através de $resource possui características adicionadas dinamicamente pelo serviço
+Contato que até agora nem sabíamos que existiam. Esta é uma das vantagens de trabalharmos com $resource. 
+Qualquer objeto retornado através dele é incrementado com uma série de funções voltadas para persistência, 
+em nosso caso, persistência ligada a REST Endpoints. A função $save gera por debaixo dos panos uma requisição 
+do tipo POST que envia para http://localhost/contatos os dados do contato. */
+

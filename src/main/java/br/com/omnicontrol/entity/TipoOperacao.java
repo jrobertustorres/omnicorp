@@ -24,7 +24,7 @@ public class TipoOperacao {
 	private String tipoMovimento;
 	@Column(name="ATUALIZACAOESTOQUE")
 	private String atualizacaoEstoque;
-	@Temporal(TemporalType.DATE)
+	@Temporal(value=TemporalType.TIMESTAMP)
 	@Column(name="DATAALTERACAO")
 	private Date dataAlteracao;
 	@Temporal(TemporalType.DATE)

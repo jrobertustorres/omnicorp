@@ -39,7 +39,6 @@ public class FuncionarioResourceImpl implements FuncionarioResource{
 			throw new NoResultException("Nenhum funcionario com id " + funcionarioId + " encontrado.");
 		}
 		entityManager.remove(func);
-		
 	}
 
 	@Override
@@ -47,18 +46,17 @@ public class FuncionarioResourceImpl implements FuncionarioResource{
 		return entityManager.find(Funcionario.class, funcionarioId);
 	}
 	
-//	public boolean login(String email, String password) {
-//        EntityManager em = null;
+//	public boolean login(String email, String senha) {
 //        List resultList = null;
 //        try{
-//            em = getEntityManager();
-//            Query q = em.createQuery("select p from Pessoa p where p.email = :email and p.password = :password")
+////            em = getEntityManager();
+//            Query q = entityManager.createQuery("select p from Funcionario f where f.email = :email and f.senha = :senha")
 //                    .setParameter("email", email)
-//                    .setParameter("password", password);
+//                    .setParameter("senha", senha);
 //            resultList = q.getResultList();
 //            return !resultList.isEmpty();
 //        } finally {
-//            em.close();
+//        	entityManager.close();
 //        }
 //    }
 

@@ -9,7 +9,7 @@ angular.module('omnicontrol').controller('funcionariosController', function ($sc
             console.log('Não foi possivel obter a lista de funcionarios.');
         });
     };
-
+    
     buscaFuncionarios();
 
     $scope.remove = function (funcionario) {

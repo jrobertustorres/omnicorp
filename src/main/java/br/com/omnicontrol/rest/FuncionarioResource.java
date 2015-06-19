@@ -28,7 +28,5 @@ public interface FuncionarioResource {
 	@GET
 	@Path("/{id}")
 	Funcionario getFuncionario(@PathParam("id") Long funcionarioId);
-
 	
-//	public boolean login(String email, String password);
 }

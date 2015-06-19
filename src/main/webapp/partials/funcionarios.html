@@ -12,12 +12,9 @@
 			<th>Nome</th>
 			<th>Sobrenome</th>
 			<th>CPF</th>
-			<th>RG</th>
 			<th>E-mail</th>
-			<th>Senha</th>
 			<th>Setor</th>
 			<th>Baixa Requisicao?</th>
-			<th>Empresa</th>
 			<th>Cargo</th>
 		</tr>
 		<tr ng-repeat='funcionario in funcionarios'>
@@ -30,12 +27,9 @@
 			<td>{{funcionario.nome}}</td>
 			<td>{{funcionario.sobrenome}}</td>
 			<td>{{funcionario.cpf}}</td>
-			<td>{{funcionario.rg}}</td>
 			<td>{{funcionario.email}}</td>
-			<td>{{funcionario.senha}}</td>
 			<td>{{funcionario.setor}}</td>
 			<td><input type="checkbox" ng-model="funcionario.baixaRequisicao" ></td>
-			<td>{{funcionario.empresa.nome}}</td>
 			<td>{{funcionario.cargo.descricao}}</td>
 		</tr>
 	</table>

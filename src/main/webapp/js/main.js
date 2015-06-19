@@ -158,10 +158,10 @@ app.config(function ($routeProvider) {
     
     $routeProvider.when('/login', {
     	templateUrl: 'partials/login.html',
-    	controller: 'produtoController'
+    	controller: 'funcionariosController'
     });
     
-    $routeProvider.otherwise({
-        redirectTo: '/login'
-    });
+//    $routeProvider.otherwise({
+//        redirectTo: '/login'
+//    });
 });
