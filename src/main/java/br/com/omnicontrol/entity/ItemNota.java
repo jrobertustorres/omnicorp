@@ -8,28 +8,31 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
-@Entity(name="itemnota")
-@Table(name="itemnota")
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
+@Entity(name = "itemnota")
+@Table(name = "itemnota")
 public class ItemNota {
-	
+
 	@GeneratedValue
 	@Id
-	@Column(name="IDITEMNOTA")
+	@Column(name = "IDITEMNOTA")
 	private Long idItemNota;
-	@Column(name="QUANTIDADE", nullable = false)
-	private int quantidade;	
-	@Column(name="VALORUNITARIO", nullable = false)
+	@Column(name = "QUANTIDADE", nullable = false)
+	private int quantidade;
+	@Column(name = "VALORUNITARIO", nullable = false)
 	private double valorUnitario;
-	@Column(name="VALORTOTAL", nullable = true)
+	@Column(name = "VALORTOTAL", nullable = true)
 	private double valorTotal;
 
-	@JoinColumn(name="IDPRODUTO", referencedColumnName="IDPRODUTO", nullable = false)
-    @ManyToOne
-    private Produto produto;
+	@JoinColumn(name = "IDPRODUTO", referencedColumnName = "IDPRODUTO", nullable = false)
+	@ManyToOne
+	private Produto produto;
 
-	@JoinColumn(name="IDCABECALHONOTA", referencedColumnName="IDCABECALHONOTA", nullable = false)
-    @ManyToOne
-    private CabecalhoNota cabecalhoNota;
+	@ManyToOne
+	@JsonBackReference
+	@JoinColumn(name = "IDCABECALHONOTA", referencedColumnName = "IDCABECALHONOTA", nullable = false)
+	private CabecalhoNota cabecalhoNota;
 
 	public ItemNota() {
 	}

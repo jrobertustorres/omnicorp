@@ -1,14 +1,7 @@
 angular.module('omnicontrol').controller('cabecalhoNotaController', function ($scope, $routeParams, CabecalhoNota, Select, ItemNota) {
 
     if ($routeParams.idCabecalhoNota) { 
-    	CabecalhoNota.get({
-        		id: $routeParams.idCabecalhoNota
-            }, function (cabecalhoNota) {
-                $scope.cabecalhoNota = cabecalhoNota;
-            },
-            function (erro) {
-                console.log(erro);
-            });
+    	refresh();
     } else {
         $scope.cabecalhoNota = new CabecalhoNota();
     }
@@ -20,6 +13,72 @@ angular.module('omnicontrol').controller('cabecalhoNotaController', function ($s
             console.log('Não foi possivel salvar');
         });
     }
+    
+    var EDIT_MODE = "edit";
+    var mode = undefined;
+    
+    $scope.isAddItemMode = function ()
+    {
+        return EDIT_MODE === mode;
+    };
+   
+    
+    $scope.addItem = function ()
+    {   
+    	$scope.itemNota = new ItemNota();
+    	$scope.itemNota.cabecalhoNota =  $scope.cabecalhoNota;
+        mode = EDIT_MODE;
+    };
+    
+    $scope.$watch('itemNota.valorUnitario * itemNota.quantidade', function (value) {
+        $scope.itemNota.valorTotal = value;
+    });
+    
+    $scope.salvarItem = function () {
+        $scope.itemNota.$save().then(function () {
+        	$scope.cabecalhoNota.itemNotas.push($scope.itemNota);
+            $scope.itemNota = new ItemNota();
+            refresh();
+            
+        }).catch(function (erro) {
+            console.log('Não foi possivel salvar');
+        });
+    }
+    
+    function refresh(){
+    	  CabecalhoNota.get({
+      		id: $routeParams.idCabecalhoNota
+          }, function (cabecalhoNota) {
+              $scope.cabecalhoNota = cabecalhoNota;
+              mode = undefined;
+          },
+          function (erro) {
+              console.log(erro);
+          });
+    }
+    
+    
+    $scope.cancel = function ()
+    {
+        mode = undefined;
+    };
+    
+//    function buscaItens() {
+//    	ItemNota.query(function (itensNota) {
+//            $scope.itensNota = itensNota;
+//        }, function (erro) {
+//            console.log('Não foi possivel obter a lista de cargos.');
+//        });
+//    };
+
+    
+    $scope.removeItem = function (itemNota) {
+    	ItemNota.delete({
+            id: itemNota.idItemNota
+        }, refresh, function (erro) {
+            console.log(erro);
+        });
+    };
     
     Select.getOptions('/omnicontrol/api/tiponegociacao/').then(function(result){
     	$scope.optionsTipoNegociacao = result.data;//pega o resultado e disponibiliza ao angular.
@@ -45,59 +104,11 @@ angular.module('omnicontrol').controller('cabecalhoNotaController', function ($s
     	console.log("Ocorreu um erro.");
     });
 
-    var EDIT_MODE = "edit";
-    var mode = undefined;
-    
-    $scope.isAddItemMode = function ()
-    {
-        return EDIT_MODE === mode;
-    };
-   
-    
-    $scope.addItem = function ()
-    {   
-    	$scope.itemNota = new ItemNota();
-    	$scope.itemNota.cabecalhoNota =  $scope.cabecalhoNota;
-        mode = EDIT_MODE;
-    };
-    
-    $scope.salvarItem = function () {
-        $scope.itemNota.$save().then(function () {
-            $scope.itemNota = new ItemNota();
-            buscaItens();
-        }).catch(function (erro) {
-            console.log('Não foi possivel salvar');
-        });
-    }
-    
-    $scope.cancel = function ()
-    {
-        mode = undefined;
-    };
-    
     Select.getOptions('/omnicontrol/api/produto/').then(function(result){
     	$scope.optionsProduto = result.data;
     }, function(error){
     	console.log("Ocorreu um erro.");
     });
-    
-    function buscaItens() {
-    	ItemNota.query(function (itensNota) {
-            $scope.itensNota = itensNota;
-        }, function (erro) {
-            console.log('Não foi possivel obter a lista de cargos.');
-        });
-    };
-
-    buscaItens();
-    
-    $scope.remove = function (itemNota) {
-    	ItemNota.delete({
-            id: itemNota.idItemNota
-        }, buscaItens, function (erro) {
-            console.log(erro);
-        });
-    };
     
 //    function calculaTotal(qtd,val){
 //    	var resultado;

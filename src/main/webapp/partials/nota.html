@@ -11,8 +11,7 @@
 	<form ng-submit="salvar()">
 		<div class="form-group" style="width: auto">
 			<label for="descricao">Data Movimentacao</label><br>
-			<td>{{cabecalhoNota.dataMovimentacao | date: "dd-MM-yyyy
-				HH:mm:ss"}}</td>
+			<td>{{cabecalhoNota.dataMovimentacao | date: "dd-MM-yyyy HH:mm:ss"}}</td>
 		</div>
 		<div class="control-group">
 			<label class="control-label">Status</label>
@@ -70,7 +69,7 @@
 	<br>
 	</form>
 </div>
-<div class="table-responsive" style="margin-top: 2.5%; float: right; width: 80%">
+<div class="table-responsive" style="margin-top: 2.5%; float: right; width: 70%">
 	<table class="table table-hover table table-striped">
 		<tr>
 			<th class="text-center">Acao</th>
@@ -80,14 +79,15 @@
 			<th>Valor Unitario</th>
 			<th>Valor Total</th>
 		</tr>
-		<tr ng-repeat='itemNota in itensNota'>
+		<tr ng-repeat='itemNota in cabecalhoNota.itemNotas'>
 			<td class="text-center">
-				<button class="btn btn-danger" ng-click="remove(itemNota)"
+				<button class="btn btn-danger" ng-click="removeItem(itemNota)"
 					title="Remover">-</button>
 			</td>
-			<td><a ng-href="#/itemNota/{{itemNota.produto.idProduto}}">{{itemNota.produto.idProduto}}</a>
+			<td><a ng-href="#/itemNota/{{itemNota.idItemNota}}">{{itemNota.idItemNota}}</a>
 			</td>
-			<td>{{itemNota.produto.descricao}}</td>
+			<td><a ng-href="#/produto/{{itemNota.produto.idProduto}}">{{itemNota.produto.descricao}}</a>
+			</td>
 			<td>{{itemNota.quantidade}}</td>
 			<td>R{{itemNota.valorUnitario | currency }}</td>
 			<td>R{{itemNota.valorTotal | currency }}</td>
@@ -112,7 +112,7 @@
 						<label class="control-label">Produto</label>
 						<div class="controls" style="width: 100%">
 							<select class="form-control" required
-								ng-model="itemNota.produto.idProduto"
+								ng-model="itemNota.produto.idProduto" 
 								ng-options="item.idProduto as item.descricao for item in optionsProduto">
 							</select>
 						</div>
@@ -125,11 +125,10 @@
 					<div class="form-group" style="width: 40%">
 						<label for="valorUnitario">Valor Unitario</label> <input
 							type="text" class="form-control" id="valorUnitario"
-							name="valorUnitario" required ng-model="itemNota.valorUnitario"
-							ng-mouseleave="calculaTotal(quantidade,valorUnitario)">
+							name="valorUnitario" required ng-model="itemNota.valorUnitario">
 					</div>
 					<div class="form-group" style="width: 40%">
-						<label for="valorTotal">Valor Total</label> <input type="text"
+						<label for="valorTotal">Valor Total</label> <input type="text" readonly
 							class="form-control" id="valorTotal" name="valorTotal" required
 							ng-model="itemNota.valorTotal">
 						<td>{{itemNota.resultado}}</td>
