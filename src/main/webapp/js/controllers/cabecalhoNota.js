@@ -63,15 +63,6 @@ angular.module('omnicontrol').controller('cabecalhoNotaController', function ($s
         mode = undefined;
     };
     
-//    function buscaItens() {
-//    	ItemNota.query(function (itensNota) {
-//            $scope.itensNota = itensNota;
-//        }, function (erro) {
-//            console.log('Não foi possivel obter a lista de cargos.');
-//        });
-//    };
-
-    
     $scope.removeItem = function (itemNota) {
     	ItemNota.delete({
             id: itemNota.idItemNota
@@ -110,12 +101,6 @@ angular.module('omnicontrol').controller('cabecalhoNotaController', function ($s
     	console.log("Ocorreu um erro.");
     });
     
-//    function calculaTotal(qtd,val){
-//    	var resultado;
-//    	resultado = qtd*val;
-//    	$scope.resultado;
-//    };
-
 });
 
 
