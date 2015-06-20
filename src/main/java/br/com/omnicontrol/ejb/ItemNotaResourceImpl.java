@@ -35,9 +35,6 @@ public class ItemNotaResourceImpl implements ItemNotaResource{
 
 	@Override
 	public ItemNota saveItemNota(ItemNota itemNota) {
-//		Produto estoque;
-//		ProdutoResourceImpl p = new ProdutoResourceImpl();
-//		estoque = p.verificaEstoqueMinimo(itemNota.getProduto());
 		if (itemNota.getIdItemNota() == null) {
 			entityManager.persist(itemNota);
 		} else {

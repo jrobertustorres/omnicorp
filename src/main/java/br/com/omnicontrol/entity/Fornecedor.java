@@ -22,6 +22,8 @@ public class Fornecedor {
 	private String nome;
 	@Column(name="CNPJ")
 	private String cnpj;
+	@Column(name="EMAIL")
+	private String email;
 	@Column(name="TELEFONE")
 	private String telefone;
 	@Column(name="ENDERECO")
@@ -50,6 +52,13 @@ public class Fornecedor {
 	}
 	public void setCnpj(String cnpj) {
 		this.cnpj = cnpj;
+	}
+	
+	public String getEmail() {
+		return email;
+	}
+	public void setEmail(String email) {
+		this.email = email;
 	}
 	public String getTelefone() {
 		return telefone;

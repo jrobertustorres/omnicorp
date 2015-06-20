@@ -13,13 +13,12 @@ import br.com.omnicontrol.rest.CargoResource;
 @Stateless
 public class CargoResourceImpl implements CargoResource{
 
-	@PersistenceContext
+	@PersistenceContext//funciona como Container que guarda as entidades que estão sendo gerenciadas pelo EntityManager
 	private EntityManager entityManager;
-	
+
 	@Override
 	public List<Cargo> getCargos() {
 		List<Cargo> cargos = entityManager.createQuery("from cargo order by id", Cargo.class).getResultList();
-		
 		return cargos;
 	}
 
@@ -27,10 +26,9 @@ public class CargoResourceImpl implements CargoResource{
 	public void removeCargo(Long cargoId) {
 		final Cargo cargo = entityManager.find(Cargo.class, cargoId);
 		if (null == cargo) {
-			throw new NoResultException("No note with id " + cargoId + " found");
+			throw new NoResultException("Nenhum cargo com id " + cargoId + " encontrado.");
 		}
 		entityManager.remove(cargo);
-		
 	}
 
 	@Override
@@ -47,5 +45,4 @@ public class CargoResourceImpl implements CargoResource{
 	public Cargo getCargo(Long cargoId) {
 		return entityManager.find(Cargo.class, cargoId);
 	}
-
 }

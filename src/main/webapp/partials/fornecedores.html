@@ -11,11 +11,8 @@
 			<th>Codigo</th>
 			<th>Nome</th>
 			<th>CNPJ</th>
+			<th>E-Mail</th>
 			<th>Telefone</th>
-			<th>Endereco</th>
-			<th>Bairro</th>
-			<th>Cidade</th>
-			<th>Data Cadastro</th>
 		</tr>
 		<tr ng-repeat='fornecedor in fornecedores'>
 			<td class="text-center">
@@ -26,11 +23,8 @@
 			</td>
 			<td>{{fornecedor.nome}}</td>
 			<td>{{fornecedor.cnpj}}</td>
+			<td>{{fornecedor.email}}</td>
 			<td>{{fornecedor.telefone}}</td>
-			<td>{{fornecedor.endereco}}</td>
-			<td>{{fornecedor.bairro}}</td>
-			<td>{{fornecedor.cidade}}</td>
-			<td>{{fornecedor.dataCadastro}}</td>
 		</tr>
 	</table>
 </div>

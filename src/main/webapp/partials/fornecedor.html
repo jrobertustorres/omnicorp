@@ -10,6 +10,14 @@
 			id="cnpj" name="cnpj" required ng-model="fornecedor.cnpj">
 	</div>
 	<div class="form-group" style="width: 40%">
+		<label for="email">E-mail</label>
+		<div class="input-group">
+			<span class="input-group-addon">@</span> <input type="email"
+				class="form-control" id="email" placeholder="email@exemplo.com"
+				name="email" ng-model="fornecedor.email" required>
+		</div>
+	</div>
+	<div class="form-group" style="width: 40%">
 		<label for="telefone">Telefone</label> <input type="text"
 			class="form-control" id="telefone" name="telefone" required
 			ng-model="fornecedor.telefone">
