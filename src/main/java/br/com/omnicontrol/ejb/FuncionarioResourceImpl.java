@@ -1,5 +1,6 @@
 package br.com.omnicontrol.ejb;
 
+import java.util.Date;
 import java.util.List;
 
 import javax.ejb.Stateless;
@@ -20,6 +21,8 @@ public class FuncionarioResourceImpl implements FuncionarioResource{
 	public Funcionario saveFuncionario(Funcionario funcionario) {
 
 		if (funcionario.getIdFuncionario() == null) {
+			Date dataCadastro = new Date();
+			funcionario.setDataCadastro(dataCadastro);
 			entityManager.persist(funcionario);
 		} else {
 			entityManager.merge(funcionario);

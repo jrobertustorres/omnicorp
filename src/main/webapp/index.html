@@ -4,8 +4,13 @@
 	<meta charset="UTF-8">
     <title>Omni Corp. Products</title>
     <link rel="stylesheet" href="vendor/bootstrap/css/bootstrap.min.css"/>
+<!--     <link rel="stylesheet" href="vendor/bootstrap/glyphicons-halflings-regular.woff"/> -->
+    <script src="vendor/js/bootstrap.js"></script>
+    <script src="vendor/js/jquery.min.js"></script>
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css" rel="stylesheet">
 </head>
 <body class="container">
+
     <div ng-view></div>
     <script src="vendor/angular/angular.js"></script>
     <script src="vendor/angular-route/angular-route.js"></script>
@@ -43,6 +48,14 @@
     <script src="js/controllers/cabecalhoNota.js"></script>
     <script src="js/services/cabecalhoNotaService.js"></script>
     <script src="js/services/itemNotaService.js"></script>
+    <script src="js/services/contaPagarService.js"></script>
+    <script src="js/controllers/contasPagar.js"></script>
+    <script src="js/controllers/contaPagar.js"></script>
     <script src="js/services/selectService.js"></script>
     
+    <script id="bsJs" type="text/javascript">
+        $(document).ready(function() {
+            $('#tooltip1').tooltip();
+        });
+        </script>
 </body>

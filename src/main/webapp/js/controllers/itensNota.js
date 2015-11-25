@@ -1,9 +1,9 @@
 angular.module('omnicontrol').controller('itensNotaController', function ($scope, ItemNota) {
 	
-    $scope.itensNota = [];
+    $scope.itensNota = []; 
 
     function buscaItensNota() {
-    	ItemNota.query(function (itensNota) {
+    	ItemNota.query(function (itensNota) { 
             $scope.itensNota = itensNota;
         }, function (erro) {
             console.log('Não foi possivel obter a lista de itens da nota.');

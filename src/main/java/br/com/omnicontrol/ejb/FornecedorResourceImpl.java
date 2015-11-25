@@ -6,6 +6,7 @@ import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.NoResultException;
 import javax.persistence.PersistenceContext;
+import javax.transaction.Transactional;
 
 import br.com.omnicontrol.entity.Fornecedor;
 import br.com.omnicontrol.rest.FornecedorResource;
@@ -17,6 +18,7 @@ public class FornecedorResourceImpl implements FornecedorResource{
 	private EntityManager entityManager;
 
 	@Override
+	@Transactional
 	public Fornecedor saveFornecedor(Fornecedor fornecedor) {
 		
 		if (fornecedor.getIdFornecedor() == null) {

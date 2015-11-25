@@ -15,7 +15,7 @@ import br.com.omnicontrol.entity.Fornecedor;
 public interface FornecedorResource {
 	
 	@POST
-	@Path("/")
+	@Path("/")//anotações JAX-RS
 	Fornecedor saveFornecedor(Fornecedor fornecedor);
 	
 	@GET

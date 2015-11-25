@@ -13,11 +13,33 @@
 		</tr>
 		<tr ng-repeat='cargo in cargos'>
 		<td class="text-center">
-				<button class="btn btn-danger" ng-click="remove(cargo)" title="Remover">-</button>
+				<button class="btn btn-danger" ng-click="addNote(cargo.idCargo)" title="Remover">-</button>
+<!-- 				<button class="btn btn-danger" ng-click="remove(cargo)" title="Remover">-</button> -->
 			</td>
 			<td><a ng-href="#/cargo/{{cargo.idCargo}}">{{cargo.idCargo}}</a>
 			</td>
 			<td>{{cargo.descricao}}</td>
 		</tr>
 	</table>
+</div>
+
+<div id="edit-note-modal" class="modal fade" align="center" style="position: absolute; vertical-align: center;" role="dialog" ng-class="{'in show':isEditNoteMode()}">
+    <div class="modal-dialog">
+            <div class="modal-content" style="width: 300px;">
+            
+                <div class="modal-header" style="background-color: #eeeeee; height: 45px;">
+                    <h4 class="modal-title" id="myModalLabel">Favor confirmar</h4>
+                </div>
+            
+                <div class="modal-body" style="height: 50px;">
+                    <p>Tem certeza que deseja excluir?</p>
+                    <p class="debug-url"></p>
+                </div>
+                
+                <div class="modal-footer">
+                	<button class="btn btn-default" ng-click="cancel()">Cancelar</button>
+                    <button class="btn btn-danger" ng-click="remove(idCargo)" title="Ok">OK</button>
+                </div>
+            </div>
+        </div>
 </div>

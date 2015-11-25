@@ -1,6 +1,6 @@
 angular.module('omnicontrol').controller('fornecedorController', function ($scope, $routeParams, Fornecedor) {
 
-    if ($routeParams.idFornecedor) {
+    if ($routeParams.idFornecedor) { 
     	Fornecedor.get({
         		id: $routeParams.idFornecedor
             }, function (fornecedor) {

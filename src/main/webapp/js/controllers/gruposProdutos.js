@@ -1,6 +1,6 @@
 angular.module('omnicontrol').controller('gruposProdutosController', function ($scope, GrupoProduto) {
 	
-    $scope.gruposProdutos = [];
+    $scope.gruposProdutos = []; 
 
     function buscaGruposProdutos() {
     	GrupoProduto.query(function (gruposProdutos) {

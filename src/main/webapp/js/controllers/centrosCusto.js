@@ -2,7 +2,7 @@ angular.module('omnicontrol').controller('centrosCustoController', function ($sc
 	
     $scope.centrosCusto = [];
 
-    function buscaCentrosCusto() {
+    function buscaCentrosCusto() { 
     	CentroCusto.query(function (centrosCusto) {
             $scope.centrosCusto = centrosCusto;
             //console.log(cargos);

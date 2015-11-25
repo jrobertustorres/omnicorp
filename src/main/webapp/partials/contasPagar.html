@@ -1,0 +1,34 @@
+<div style="margin-top: 2%">
+	<a ng-href="#/contaPagar" class="btn btn-primary">Novo registro</a>
+	<a href="#/home" class="btn btn-default">Voltar</a>
+</div>
+<hr>
+<h1 class="text-left">Contas a Pagar</h1>
+<div class="table-responsive" style="margin-top: 2.5%">
+	<table class="table table-hover table table-striped">
+		<tr>
+			<th class="text-center">Acao</th>
+			<th>Codigo</th>
+			<th>Centro de Custo</th>
+			<th>Descricao</th>
+			<th>Vencimento</th>
+			<th>Tipo de Conta</th>
+			<th>Repetir em Meses</th>
+			<th>Valor da Parcela</th>
+		</tr>
+		<tr ng-repeat='contaPagar in contasPagar'>
+			<td class="text-center">
+				<button class="btn btn-danger" ng-click="remove(contaPagar)">
+					Remover</button>
+			</td>
+			<td><a ng-href="#/contaPagar/{{contaPagar.idContaPagar}}">{{contaPagar.idContaPagar}}</a>
+			</td>
+			<td>{{tipoOperacao.centroCusto}}</td>
+			<td>{{tipoOperacao.descricao}}</td>
+			<td>{{tipoOperacao.dataVencimento | date:'dd/MM/yyyy HH:mm:ss'}}</td>
+			<td>{{tipoOperacao.tipoConta}}</td>
+			<td>{{tipoOperacao.repetirPara}}</td>
+			<td>{{tipoOperacao.valorParcela}}</td>
+		</tr>
+	</table>
+</div>

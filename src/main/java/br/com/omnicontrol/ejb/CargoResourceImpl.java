@@ -1,5 +1,6 @@
 package br.com.omnicontrol.ejb;
 
+import java.util.Date;
 import java.util.List;
 
 import javax.ejb.Stateless;
@@ -34,6 +35,8 @@ public class CargoResourceImpl implements CargoResource{
 	@Override
 	public Cargo saveCargo(Cargo cargo) {
 		if (cargo.getIdCargo() == null) {
+			Date dataCadastro = new Date();
+			cargo.setDataCadastro(dataCadastro);
 			entityManager.persist(cargo);
 		} else {
 			entityManager.merge(cargo);

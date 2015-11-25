@@ -13,7 +13,7 @@ angular.module('omnicontrol').controller('tiposOperacoesController', function ($
     buscaTiposOperacoes();
 
     $scope.remove = function (tipoOperacao) {
-    	TipoOperacao.delete({
+    	TipoOperacao.delete({ 
             id: tipoOperacao.idTipoOperacao
         }, buscaTiposOperacoes, function (erro) {
             console.log(erro);

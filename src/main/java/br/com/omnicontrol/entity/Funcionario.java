@@ -22,18 +22,17 @@ public class Funcionario {
 	private Long idFuncionario;
 	@Column(name="NOME", nullable = false)
 	private String nome;
-	@Column(name="SOBRENOME", nullable = false)
-	private String sobrenome;
 	@Column(name="CPF", nullable = false)
 	private String cpf;
 	@Column(name="RG")
 	private String rg;
 	@Column(name="EMAIL", nullable = false)
 	private String email;
+	@Column(name="TELEFONE", nullable = false)
+	private String telefone;
+
 	@Column(name="SENHA", nullable = false)
 	private String senha;
-	@Column(name="SETOR")
-	private String setor;
 	@Column(name="BAIXAREQUISICAO")
 	private boolean baixaRequisicao;
 
@@ -41,13 +40,17 @@ public class Funcionario {
 	@Column(name="DATACADASTRO")
 	private Date dataCadastro;
 	
-	@JoinColumn(name="IDEMPRESA", referencedColumnName="IDEMPRESA", nullable = false) // lembrar de mudar para true
+	@JoinColumn(name="IDEMPRESA", referencedColumnName="IDEMPRESA", nullable = false) 
     @ManyToOne
     private Empresa empresa;
 	
-	@JoinColumn(name="IDCARGO", referencedColumnName="IDCARGO", nullable = false) // lembrar de mudar para true
+	@JoinColumn(name="IDCARGO", referencedColumnName="IDCARGO", nullable = false)
     @ManyToOne
     private Cargo cargo;
+	
+	@JoinColumn(name="IDCENTROCUSTO", referencedColumnName="IDCENTROCUSTO", nullable = false)
+	@ManyToOne
+	private CentroCusto centroCusto;
 
 	public Funcionario() {
 	}
@@ -66,14 +69,6 @@ public class Funcionario {
 
 	public void setNome(String nome) {
 		this.nome = nome;
-	}
-
-	public String getSobrenome() {
-		return sobrenome;
-	}
-
-	public void setSobrenome(String sobrenome) {
-		this.sobrenome = sobrenome;
 	}
 
 	public String getCpf() {
@@ -108,14 +103,6 @@ public class Funcionario {
 		this.senha = senha;
 	}
 
-	public String getSetor() {
-		return setor;
-	}
-
-	public void setSetor(String setor) {
-		this.setor = setor;
-	}
-
 	public boolean isBaixaRequisicao() {
 		return baixaRequisicao;
 	}
@@ -147,5 +134,20 @@ public class Funcionario {
 	public void setCargo(Cargo cargo) {
 		this.cargo = cargo;
 	}
+	
+	public String getTelefone() {
+		return telefone;
+	}
 
+	public void setTelefone(String telefone) {
+		this.telefone = telefone;
+	}
+
+	public CentroCusto getCentroCusto() {
+		return centroCusto;
+	}
+
+	public void setCentroCusto(CentroCusto centroCusto) {
+		this.centroCusto = centroCusto;
+	}
 }

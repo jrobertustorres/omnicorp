@@ -1,6 +1,6 @@
 angular.module('omnicontrol').controller('centroCustoController', function ($scope, $routeParams, CentroCusto) {
 
-    if ($routeParams.idCentroCusto) {
+    if ($routeParams.idCentroCusto) { 
     	CentroCusto.get({
         		id: $routeParams.idCentroCusto
             }, function (centroCusto) {

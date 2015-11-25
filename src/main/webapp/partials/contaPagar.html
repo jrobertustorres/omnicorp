@@ -1,0 +1,43 @@
+<h1 class="text-left">Conta a Pagar</h1>
+<hr>
+<form ng-submit="salvar()">
+<div class="control-group" style="width: 40%">
+		<label class="control-label">Centro de Custo</label>
+		<div class="controls" style="width: 40%">
+			<select class="form-control" required
+				ng-model="contaPagar.centroCusto.idCentroCusto"
+				ng-options="item.idCentroCusto as item.descricao for item in optionsCentroCusto">
+			</select>
+		</div>
+	</div>
+	<div class="form-group" style="width: 40%">
+		<label for="descricao">Descricao</label> <input type="text"
+			class="form-control" id="descricao" name="descricao" required
+			ng-model="tipoOperacao.descricao">
+	</div>
+	<div class="control-group" style="width: 40%">
+		<label class="control-label">Tipo de Conta</label>
+		<div class="controls" style="width: 40%">
+			<select class="form-control" id="tipoConta" ng-model="contaPagar.tipoConta">
+				<option value="Fixa">Fixa</option>
+				<option value="Variavel">Variavel</option>
+			</select>
+		</div>
+	</div>
+	<div class="form-group" style="width: 40%">
+		<label for="repetirPara">Repetir para:</label> <input type="text"
+			class="form-control" id="repetirPara" name="repetirPara" required
+			ng-model="contaPagar.repetirPara">
+	</div>
+	<div class="form-group" style="width: 40%">
+		<label for="valorParcela">Valor Parcela</label> <input type="text"
+			class="form-control" id="valorParcela" name="valorParcela" required
+			ng-model="contaPagar.valorParcela">
+	</div>
+	<hr>
+	<div align="left">
+		<button type="submit" class="btn btn-primary">Salvar</button>
+		<a href="#/tiposOperacoes" class="btn btn-default">Voltar</a>
+	</div>
+	<br>
+</form>

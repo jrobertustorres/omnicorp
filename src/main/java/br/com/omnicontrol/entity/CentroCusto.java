@@ -14,6 +14,7 @@ public class CentroCusto {
 	@Id
 	@Column(name="IDCENTROCUSTO")
 	private Long idCentroCusto;
+	
 	@Column(name="DESCRICAO")
 	private String descricao;
 

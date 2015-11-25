@@ -2,7 +2,7 @@ angular.module('omnicontrol').controller('fornecedoresController', function ($sc
 	
     $scope.fornecedores = [];
 
-    function buscaFornecedores() {
+    function buscaFornecedores() { 
     	Fornecedor.query(function (fornecedores) {
             $scope.fornecedores = fornecedores;
         }, function (erro) {

@@ -2,7 +2,7 @@ angular.module('omnicontrol').controller('tiposNegociacoesController', function 
 	
     $scope.tiposNegociacoes = [];
 
-    function buscaTipoNegociacao() {
+    function buscaTipoNegociacao() { 
     	TipoNegociacao.query(function (tiposNegociacoes) {
             $scope.tiposNegociacoes = tiposNegociacoes;
         }, function (erro) {

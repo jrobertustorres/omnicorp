@@ -161,7 +161,22 @@ app.config(function ($routeProvider) {
     	controller: 'funcionariosController'
     });
     
-//    $routeProvider.otherwise({
-//        redirectTo: '/login'
-//    });
+    $routeProvider.when('/contasPagar', {
+    	templateUrl: 'partials/contasPagar.html',
+    	controller: 'contasPagarController'
+    });
+    
+    $routeProvider.when('/contaPagar', {
+        templateUrl: 'partials/contaPagar.html',
+        controller: 'contaPagarController'
+    });
+    
+    $routeProvider.when('/contaPagar/:idContaPagar', {
+        templateUrl: 'partials/contaPagar.html',
+        controller: 'contaPagarController'
+    });
+    
+    $routeProvider.otherwise({
+        redirectTo: '/login'
+    });
 });

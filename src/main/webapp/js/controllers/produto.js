@@ -1,6 +1,6 @@
 angular.module('omnicontrol').controller('produtoController', function ($scope, $routeParams, Produto, Select) {
 
-    if ($routeParams.idProduto) {
+    if ($routeParams.idProduto) { 
     	Produto.get({
         		id: $routeParams.idProduto
             }, function (produto) {

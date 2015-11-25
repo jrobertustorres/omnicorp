@@ -1,15 +1,40 @@
-<h1 class="text-left">Funcionario</h1>
-<hr>
+<nav role="navigation" class="navbar navbar-inverse">
+	<ul class="nav nav-pills">
+		<li><a href="#/funcionarios" data-placement="left" data-toggle="tooltip"
+			id="tooltip1" data-placement="left" title="Voltar"> <span
+				class="glyphicon glyphicon-chevron-left"></span></a>
+		<li><a href="#/home"> <span class="glyphicon glyphicon-home"></span>
+				Home
+		</a></li>
+		<li class="nav navbar-nav navbar-right"><a href="about.html">
+				<span class="glyphicon glyphicon-log-out"></span> Sair
+		</a></li>
+	</ul>
+</nav>
+
 <form ng-submit="salvar()">
+<nav class="navbar navbar-default">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<a class="navbar-brand" href="#">Funcionário</a>
+			</div>
+			<div class="navbar-header">
+				<a ng-href="#/funcionario" class="btn btn-primary">Novo</a>
+			</div>
+			<div>
+				<button type="submit" class="btn btn-primary">Salvar</button>
+			</div>
+		</div>
+	</nav>
 	<div class="form-group" style="width: 40%">
 		<label for="nome">Nome</label> <input type="text" class="form-control"
 			id="nome" name="nome" required ng-model="funcionario.nome">
 	</div>
-	<div class="form-group" style="width: 40%">
-		<label for="sobrenome">Sobrenome</label> <input type="text"
-			class="form-control" id="sobrenome" name="sobrenome" required
-			ng-model="funcionario.sobrenome">
-	</div>
+<!-- 	<div class="form-group" style="width: 40%"> -->
+<!-- 		<label for="sobrenome">Sobrenome</label> <input type="text" -->
+<!-- 			class="form-control" id="sobrenome" name="sobrenome" required -->
+<!-- 			ng-model="funcionario.sobrenome"> -->
+<!-- 	</div> -->
 	<div class="form-group" style="width: 40%">
 		<label for="cpf">CPF</label> <input type="text" class="form-control"
 			id="cpf" name="cpf" required ng-model="funcionario.cpf">
@@ -31,10 +56,21 @@
 			class="form-control" id="senha" ng-model="funcionario.senha" required>
 	</div>
 	<div class="form-group" style="width: 40%">
-		<label for="setor">Setor</label> <input type="text"
-			class="form-control" id="setor" name="setor" required
-			ng-model="funcionario.setor">
+		<label for="telefone">Telefone</label>
+  <input type="text" class="form-control"
+			id="telefone" name="telefone" ng-model="funcionario.telefone" required="required">
 	</div>
+	
+	<div class="control-group" style="width: 40%">
+		<label class="control-label">Setor</label>
+		<div class="controls" style="width: 40%">
+			<select class="form-control" required
+				ng-model="funcionario.centroCusto.idCentroCusto"
+				ng-options="item.idCentroCusto as item.descricao for item in optionsCentroCusto">
+			</select>
+		</div>
+	</div>
+	
 	<div class="form-group">
 		<label for="baixaRequisicao">Baixa Requisicao?</label> <input
 			type="checkbox" id="baixaRequisicao"
@@ -52,11 +88,18 @@
 	<div class="control-group" style="width: 40%">
 		<label class="control-label">Cargo</label>
 		<div class="controls" style="width: 40%">
-			<select class="form-control" required ng-model="funcionario.cargo.idCargo"
+			<select class="form-control" required
+				ng-model="funcionario.cargo.idCargo"
 				ng-options="item.idCargo as item.descricao for item in optionsCargo">
 			</select>
 		</div>
 	</div>
+	<div class="form-group" style="width: 40%">
+		<label for="dataCadastro">Data de Cadastro</label> 
+		<label>ng-model="funcionario.dataCadastro"</label>
+		<span>{{time|date: 'hh:mm a'}}</span>
+	</div>
+	
 	<hr>
 	<div align="left">
 		<button type="submit" class="btn btn-primary">Salvar</button>

@@ -1,14 +1,47 @@
-<div style="margin-top: 2%">
-	<a ng-href="#/funcionario" class="btn btn-primary">Novo Funcionario</a>
-	<a href="#/home" class="btn btn-default">Voltar</a>
-</div>
-<hr>
-<h1 class="text-left">Funcionarios</h1>
+<nav role="navigation" class="navbar navbar-inverse">
+	<ul class="nav nav-pills">
+		<li><a href="#/home" data-placement="left" data-toggle="tooltip"
+			id="tooltip1" data-placement="left" title="Voltar"> <span
+				class="glyphicon glyphicon-chevron-left"></span></a>
+		<li><a href="#/home"> <span class="glyphicon glyphicon-home"></span>
+				Home
+		</a></li>
+		<li class="nav navbar-nav navbar-right"><a href="about.html">
+				<span class="glyphicon glyphicon-log-out"></span> Sair
+		</a></li>
+	</ul>
+</nav>
+
+<form class="navbar-form" role="search" method="get" id="search-form" name="search-form">
+	<nav class="navbar navbar-default">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<a class="navbar-brand" href="#">Funcionários</a>
+			</div>
+			<div class="navbar-header">
+				<a ng-href="#/funcionario" class="btn btn-primary">Novo</a>
+			</div>
+			<div class="col-lg-3 text-align:center">
+				<div class="input-group">
+					<input type="text" class="form-control" placeholder="Buscar...">
+					<span class="input-group-btn">
+						<button type="submit" class="btn btn-primary">
+							<span class="glyphicon glyphicon-search"></span>
+						</button>
+					</span>
+				</div>
+			</div>
+		</div>
+	</nav>
+</form>
+
+<!-- <hr> -->
+
 <div class="table-responsive" style="margin-top: 2.5%">
 	<table class="table table-hover table table-striped">
 		<tr>
-			<th class="text-center">Acao</th>
-			<th>Codigo</th>
+			<th class="text-center">Remover</th>
+			<th>Editar</th>
 			<th>Nome</th>
 			<th>Sobrenome</th>
 			<th>CPF</th>
@@ -18,16 +51,19 @@
 		</tr>
 		<tr ng-repeat='funcionario in funcionarios'>
 			<td class="text-center">
-				<button class="btn btn-danger" ng-click="remove(funcionario)" title="Remover">
-					-</button>
+				<!-- 			<a href="#" class="btn btn-default"><span class="glyphicon glyphicon-trash"></span> Button</a> -->
+				<a href="#"><span class="glyphicon glyphicon-trash"></span></a> <!-- 				<button class="btn btn-danger" ng-click="remove(funcionario)" title="Remover" > -->
+				<!-- 					-</button> -->
 			</td>
-			<td><a ng-href="#/funcionario/{{funcionario.idFuncionario}}">{{funcionario.idFuncionario}}</a>
+			<td><a ng-href="#/funcionario/{{funcionario.idFuncionario}}"><span
+					class="glyphicon glyphicon-pencil"></span></a> <!-- 			<td><a ng-href="#/funcionario/{{funcionario.idFuncionario}}">{{funcionario.idFuncionario}}</a> -->
 			</td>
 			<td>{{funcionario.nome}}</td>
 			<td>{{funcionario.sobrenome}}</td>
 			<td>{{funcionario.cpf}}</td>
 			<td>{{funcionario.email}}</td>
-			<td><input type="checkbox" ng-model="funcionario.baixaRequisicao" ></td>
+			<td><input type="checkbox"
+				ng-model="funcionario.baixaRequisicao"></td>
 			<td>{{funcionario.cargo.descricao}}</td>
 		</tr>
 	</table>
